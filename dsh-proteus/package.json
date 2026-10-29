@@ -2,6 +2,15 @@
   "name": "dsh-proteus",
   "version": "0.1.0",
   "description": "Proteus 数学应试插件：考试契约 → 矩阵路由 → 求解 → 多路验证 → 评分模拟 → 定稿审计，按评分标准逐步得分。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phaenarete-Project/proteus.git",
+    "directory": "dsh-proteus"
+  },
+  "homepage": "https://github.com/Phaenarete-Project/proteus#readme",
+  "bugs": {
+    "url": "https://github.com/Phaenarete-Project/proteus/issues"
+  },
   "type": "module",
   "main": "lib/index.js",
   "icon": "./icon.svg",
