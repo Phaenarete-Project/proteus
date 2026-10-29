@@ -4,6 +4,10 @@
 
 本目录是原随笔 [《Proteus：当 AI 学会"按评分标准得分"》](<../../Documents/AEON/AEON/Proteus：当 AI 学会"按评分标准得分".md>) 的工程化落地：不是再写一遍理念，而是把理念翻译成**契约、工具、状态机、评分函数、审计包**，并给出可以在 DSH 里安装的 `dsh-proteus` bundle 参考实现。
 
+- 公开仓库：[Phaenarete-Project/proteus](https://github.com/Phaenarete-Project/proteus)
+- 市场收录申请：[dsh-plugin-index #138](https://github.com/polang233/dsh-plugin-index/issues/138)（审核中；来源为公开 Git 仓库 + 固定提交）
+- npm：`dsh-proteus@0.1.0`（待 `npm login` 后发布）
+
 ---
 
 ## 读什么
