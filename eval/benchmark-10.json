@@ -1,0 +1,725 @@
+{
+  "schema": "proteus.benchmark/v1",
+  "name": "Proteus 10 题测试集",
+  "version": "0.1.0",
+  "notes": "v0.1 只有 numeric 一种独立证据介质；主测题预期上限为 LowConfidence。不要以 Verified 作为通过标准。",
+  "problems": [
+    {
+      "id": "P01",
+      "exam": "gaokao-math",
+      "domain": "calculus",
+      "knowledge_points": [
+        "GK.FUNC.DERIV",
+        "GK.FUNC.MONO",
+        "GK.FUNC.VALUE"
+      ],
+      "problem_type": "computation",
+      "difficulty": "hard",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 900,
+      "problem": "已知函数 f(x)=ln x - a x（a∈R）。(1) 讨论 f(x) 的单调性；(2) 若 f(x)≤0 对任意 x>0 恒成立，求 a 的取值范围。",
+      "answer_format": {
+        "type": "interval",
+        "endpoints": {
+          "left": "closed",
+          "right": "open"
+        }
+      },
+      "reference_answer": "[1/e, +∞)",
+      "verification": {
+        "reference_expr": "1/e",
+        "variables": [],
+        "sample_range": [
+          0.01,
+          10
+        ],
+        "seed": 42,
+        "checks": [
+          "answer_format",
+          "expression_sample",
+          "domain_probe"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "写定义域并求导 (1-ax)/x",
+          "points": 2,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "a≤0 时单调递增",
+          "points": 2,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "a>0 时两段单调性",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S4",
+          "desc": "最大值 -ln a -1 并解得 a≥1/e",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        }
+      ],
+      "traps": [
+        "T01",
+        "T08",
+        "T09"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "不写 x>0 → T01；答案写成 (1/e,+∞) → T09；不贴 param-range → T08。"
+    },
+    {
+      "id": "P02",
+      "exam": "gaokao-math",
+      "domain": "geometry",
+      "knowledge_points": [
+        "GK.TRIG.TRIANGLE",
+        "GK.TRIG.SOLVE"
+      ],
+      "problem_type": "computation",
+      "difficulty": "medium",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 600,
+      "problem": "在 △ABC 中，a=2，b=√6，A=45°。求角 B 的所有可能值。",
+      "answer_format": {
+        "type": "set"
+      },
+      "reference_answer": "{60°, 120°}",
+      "verification": {
+        "variables": [],
+        "expected_solution_count": 2,
+        "checks": [
+          "answer_format"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "写出正弦定理",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "算出 sin B=√3/2",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "给出两解并验证都合法",
+          "points": 4,
+          "evidence": [
+            "structural"
+          ]
+        }
+      ],
+      "traps": [
+        "T07"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "只写 B=60° → T07。"
+    },
+    {
+      "id": "P03",
+      "exam": "gaokao-math",
+      "domain": "series",
+      "knowledge_points": [
+        "GK.SEQ.RECUR",
+        "GK.SEQ.GEOM",
+        "GK.SEQ.SUM"
+      ],
+      "problem_type": "computation",
+      "difficulty": "medium",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 600,
+      "problem": "已知数列 {a_n} 满足 a_1=1，a_{n+1}=2a_n+1。(1) 求 {a_n} 的通项公式；(2) 求前 n 项和 S_n。",
+      "answer_format": {
+        "type": "expression"
+      },
+      "reference_answer": "a_n=2^n-1；S_n=2^{n+1}-n-2",
+      "verification": {
+        "reference_expr": null,
+        "variables": [
+          "n"
+        ],
+        "checks": [
+          "answer_format"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "构造 b_n=a_n+1 为等比数列",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "写出 a_n=2^n-1",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "求和得 S_n=2^{n+1}-n-2",
+          "points": 4,
+          "evidence": [
+            "structural"
+          ]
+        }
+      ],
+      "traps": [],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "求和漏掉 Σ1 → 部分分。"
+    },
+    {
+      "id": "P04",
+      "exam": "gaokao-math",
+      "domain": "geometry",
+      "knowledge_points": [
+        "GK.ANALYTIC.ELLIPSE",
+        "GK.ANALYTIC.LINE",
+        "GK.VEC.DOT"
+      ],
+      "problem_type": "computation",
+      "difficulty": "hard",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 900,
+      "problem": "已知椭圆 C: x^2/4 + y^2 = 1，过点 P(0,2) 的直线 l 与 C 交于 A、B 两点，O 为原点。若 OA⊥OB，求直线 l 的方程。",
+      "answer_format": {
+        "type": "expression"
+      },
+      "reference_answer": "y=2x+2 或 y=-2x+2",
+      "verification": {
+        "variables": [],
+        "expected_solution_count": 2,
+        "checks": [
+          "answer_format"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "设直线并说明斜率存在/垂直情况",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "联立 + 韦达定理",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "用 OA·OB=0 建立方程",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S4",
+          "desc": "解得 k=±2 并检验判别式",
+          "points": 1,
+          "evidence": [
+            "structural"
+          ]
+        }
+      ],
+      "traps": [
+        "T07",
+        "T17"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "只写一条直线 → T07；用了 G1 却不贴 uses:G1 → T17。"
+    },
+    {
+      "id": "P05",
+      "exam": "gaokao-math",
+      "domain": "probability",
+      "knowledge_points": [
+        "GK.PROB.INDEPENDENT",
+        "GK.PROB.CLASSICAL"
+      ],
+      "problem_type": "computation",
+      "difficulty": "medium",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 600,
+      "problem": "甲、乙两人独立射击，命中率分别为 0.8 和 0.6，每人射击一次。(1) 求两人都命中的概率；(2) 已知至少一人命中，求甲命中的概率。",
+      "answer_format": {
+        "type": "exact"
+      },
+      "reference_answer": "(1) 0.48；(2) 20/23 ≈ 0.8696",
+      "verification": {
+        "reference_expr": "20/23",
+        "variables": [],
+        "checks": [
+          "answer_format",
+          "expression_sample"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "设事件并写明独立",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "(1) 0.48",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "P(A∪B)=0.92",
+          "points": 2,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S4",
+          "desc": "条件概率 20/23",
+          "points": 2,
+          "evidence": [
+            "structural",
+            "numeric"
+          ]
+        }
+      ],
+      "traps": [
+        "T19"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "不写独立/不贴 independent → T19。"
+    },
+    {
+      "id": "P06",
+      "exam": "gaokao-math",
+      "domain": "geometry",
+      "knowledge_points": [
+        "GK.SOLID.DIHEDRAL",
+        "GK.SOLID.ANGLE_LINE_PLANE"
+      ],
+      "problem_type": "computation",
+      "difficulty": "medium",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 900,
+      "problem": "在四棱锥 P-ABCD 中，底面 ABCD 是正方形，PA⊥底面 ABCD，PA=AB=2。求平面 PAB 与平面 PCD 所成锐二面角的余弦值。",
+      "answer_format": {
+        "type": "numerical",
+        "tolerance": {
+          "abs": 0.001
+        }
+      },
+      "reference_answer": "√2/2",
+      "verification": {
+        "reference_expr": "sqrt(2)/2",
+        "variables": [],
+        "checks": [
+          "answer_format",
+          "expression_sample"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "建系并写出关键点坐标",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "求两平面法向量",
+          "points": 4,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "用法向量求夹角余弦",
+          "points": 3,
+          "evidence": [
+            "structural",
+            "numeric"
+          ]
+        }
+      ],
+      "traps": [
+        "T17"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "求成 135° 余弦 -√2/2 → 答案错；不用 PA=AB=2 → T17。"
+    },
+    {
+      "id": "P07",
+      "exam": "kaoyan-math1",
+      "domain": "calculus",
+      "knowledge_points": [
+        "KY1.CALC.LIMIT",
+        "KY1.CALC.TAYLOR",
+        "KY1.CALC.INFINITESIMAL"
+      ],
+      "problem_type": "computation",
+      "difficulty": "hard",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 600,
+      "problem": "求极限 lim_{x→0} [ (1+x)^{1/x} - e ] / x。",
+      "answer_format": {
+        "type": "exact"
+      },
+      "reference_answer": "-e/2",
+      "verification": {
+        "reference_expr": "-e/2",
+        "variables": [],
+        "checks": [
+          "answer_format",
+          "expression_sample"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "取对数或指数化",
+          "points": 4,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "展开到一阶并保留 O(x^2)",
+          "points": 4,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "取极限",
+          "points": 2,
+          "evidence": [
+            "structural",
+            "numeric"
+          ]
+        }
+      ],
+      "traps": [
+        "T13"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "中间步骤过早取近似 → T13。"
+    },
+    {
+      "id": "P08",
+      "exam": "kaoyan-math1",
+      "domain": "series",
+      "knowledge_points": [
+        "KY1.CALC.SERIES_CONVERGE",
+        "KY1.CALC.SERIES_NUMERIC"
+      ],
+      "problem_type": "computation",
+      "difficulty": "hard",
+      "total_points": 12,
+      "answer_points": 0,
+      "time_budget_s": 900,
+      "problem": "判断级数 Σ_{n=2}^∞ (-1)^n / √(n + (-1)^n) 的敛散性；若收敛，说明是条件收敛还是绝对收敛。",
+      "answer_format": {
+        "type": "exact"
+      },
+      "reference_answer": "条件收敛",
+      "verification": {
+        "variables": [
+          "n"
+        ],
+        "checks": [
+          "answer_format"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "与 (-1)^n/√n 拆分/比较",
+          "points": 4,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "交错级数收敛",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "绝对值级数发散",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S4",
+          "desc": "结论：条件收敛",
+          "points": 2,
+          "evidence": [
+            "structural"
+          ]
+        }
+      ],
+      "traps": [
+        "T23"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "不贴 convergence → T23；不写结论 → T14；误判绝对收敛 → 答案错。"
+    },
+    {
+      "id": "P09",
+      "exam": "kaoyan-math1",
+      "domain": "linear_algebra",
+      "knowledge_points": [
+        "KY1.LINALG.DET_CALC",
+        "KY1.LINALG.SYS_SOLVABILITY",
+        "KY1.LINALG.SYS_STRUCTURE",
+        "KY1.LINALG.MATRIX_RANK"
+      ],
+      "problem_type": "classification",
+      "difficulty": "hard",
+      "total_points": 12,
+      "answer_points": 2,
+      "time_budget_s": 1200,
+      "problem": "设 A=[[1,1,a],[1,a,1],[a,1,1]]，b=(1,1,1)^T。讨论 a 取何值时方程组 Ax=b 有唯一解、无解、无穷多解，并求解。",
+      "answer_format": {
+        "type": "expression"
+      },
+      "reference_answer": "a≠1,-2：唯一解 x=y=z=1/(a+2)；a=1：无穷多解 x+y+z=1；a=-2：无解",
+      "verification": {
+        "variables": [],
+        "checks": [
+          "answer_format"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "算出行列式 -(a-1)^2(a+2)",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "a≠1,-2 唯一解 x=y=z=1/(a+2)",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "a=1 无穷多解 x+y+z=1",
+          "points": 2,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S4",
+          "desc": "a=-2 无解（秩论证）",
+          "points": 2,
+          "evidence": [
+            "structural"
+          ]
+        }
+      ],
+      "traps": [
+        "T08",
+        "T22"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT"
+      ],
+      "trap_probe": "漏 a=-2 → T08/T22；不贴 param-range/rank → 扣分风险。",
+      "time_pressure_variant": {
+        "time_budget_s": 90,
+        "expected_reason_codes": [
+          "TIME_EXHAUSTED"
+        ]
+      }
+    },
+    {
+      "id": "P10",
+      "exam": "kaoyan-math1",
+      "domain": "calculus",
+      "knowledge_points": [
+        "KY1.CALC.MEAN_VALUE",
+        "KY1.CALC.DERIV"
+      ],
+      "problem_type": "proof",
+      "difficulty": "medium",
+      "total_points": 12,
+      "answer_points": 0,
+      "time_budget_s": 600,
+      "problem": "设 f 在 [0,1] 上连续，在 (0,1) 内可导，f(0)=0，f(1)=1。证明：存在 ξ∈(0,1)，使得 f'(ξ)=1。",
+      "answer_format": {
+        "type": "proof"
+      },
+      "reference_answer": "构造 g(x)=f(x)-x，Rolle 定理",
+      "verification": {
+        "variables": [],
+        "checks": [
+          "answer_format"
+        ]
+      },
+      "rubric": [
+        {
+          "id": "S1",
+          "desc": "构造 g(x)=f(x)-x",
+          "points": 4,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S2",
+          "desc": "验证连续/可导与 g(0)=g(1)=0",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S3",
+          "desc": "引用罗尔定理得 g'(ξ)=0",
+          "points": 3,
+          "evidence": [
+            "structural"
+          ]
+        },
+        {
+          "id": "S4",
+          "desc": "结论 f'(ξ)=1",
+          "points": 2,
+          "evidence": [
+            "structural"
+          ]
+        }
+      ],
+      "traps": [
+        "T14"
+      ],
+      "expected_state": "LowConfidence",
+      "expected_reason_codes": [
+        "EVIDENCE_INSUFFICIENT",
+        "FORMAL_EVIDENCE_REQUIRED"
+      ],
+      "trap_probe": "不写结论 → T14；声称已形式化验证 → 审计应判无依据。"
+    }
+  ],
+  "probes": [
+    {
+      "id": "S1",
+      "kind": "ambiguous",
+      "problem": "已知三角形两边长分别为 3 和 5，求第三边的长。",
+      "exam": "gaokao-math",
+      "expected_state": "Ambiguous",
+      "expected_reason_codes": [
+        "CONTRACT_AMBIGUOUS"
+      ]
+    },
+    {
+      "id": "S2",
+      "kind": "out_of_syllabus",
+      "problem": "用留数定理计算 ∫_0^{2π} dθ / (5 + 3cos θ)。",
+      "exam": "kaoyan-math1",
+      "expected_state": "OutOfSyllabus",
+      "expected_reason_codes": [
+        "OUT_OF_SYLLABUS"
+      ],
+      "reference_answer": "π/2（仅供人工对照）"
+    },
+    {
+      "id": "S3",
+      "kind": "unknown",
+      "problem": "证明：每个大于 2 的偶数都可以写成两个素数之和。",
+      "exam": "kaoyan-math1",
+      "expected_state": "Unknown",
+      "expected_reason_codes": [
+        "NO_ANSWER"
+      ]
+    }
+  ]
+}
