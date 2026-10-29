@@ -1,0 +1,70 @@
+{
+  "schema": "proteus.presets/v1",
+  "presets": [
+    {
+      "id": "proteus",
+      "name": "Proteus 应试主控",
+      "description": "考试契约 → 矩阵路由 → 求解 → 多路验证 → 评分模拟 → 定稿审计；时间预算内降级。",
+      "order": 10,
+      "personaFile": "persona-proteus.md",
+      "toolsRole": "full",
+      "bash": true,
+      "jobs": true,
+      "delegation": true,
+      "askUser": true,
+      "web": true
+    },
+    {
+      "id": "proteus-contractor",
+      "name": "Proteus 契约官",
+      "description": "只做考试契约：解析题目、知识点与评分标准，标出歧义与大纲外内容，不写解法。",
+      "order": 11,
+      "personaFile": "persona-proteus-contractor.md",
+      "toolsRole": "contract",
+      "bash": false,
+      "jobs": false,
+      "delegation": false,
+      "askUser": true,
+      "web": false
+    },
+    {
+      "id": "proteus-solver",
+      "name": "Proteus 解题者",
+      "description": "按契约产出结构化步骤与答案，声明证据需求并调用验证工具，不做评分。",
+      "order": 12,
+      "personaFile": "persona-proteus-solver.md",
+      "toolsRole": "solver",
+      "bash": true,
+      "jobs": true,
+      "delegation": true,
+      "askUser": true,
+      "web": false
+    },
+    {
+      "id": "proteus-grader",
+      "name": "Proteus 评分官",
+      "description": "只读解答与评分标准，按确定性规则模拟评分并给出扣分明细，不改写解答。",
+      "order": 13,
+      "personaFile": "persona-proteus-grader.md",
+      "toolsRole": "grader",
+      "bash": false,
+      "jobs": false,
+      "delegation": false,
+      "askUser": false,
+      "web": false
+    },
+    {
+      "id": "proteus-auditor",
+      "name": "Proteus 审计官",
+      "description": "只做审计与回放：校验证据链、审计包哈希与评分漂移，输出问题清单。",
+      "order": 14,
+      "personaFile": "persona-proteus-auditor.md",
+      "toolsRole": "auditor",
+      "bash": true,
+      "jobs": false,
+      "delegation": false,
+      "askUser": false,
+      "web": false
+    }
+  ]
+}

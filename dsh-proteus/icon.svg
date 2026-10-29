@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Proteus">
+  <title>Proteus</title>
+  <desc>Deep disc, three rising score bars and a wave: exam scoring that adapts.</desc>
+  <defs>
+    <linearGradient id="proteus-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="proteus-bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#proteus-bg)"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="14.5" y="35" width="7" height="11" rx="1.6" fill="url(#proteus-bar)" opacity="0.55"/>
+  <rect x="28.5" y="28" width="7" height="18" rx="1.6" fill="url(#proteus-bar)" opacity="0.8"/>
+  <rect x="42.5" y="19" width="7" height="27" rx="1.6" fill="url(#proteus-bar)"/>
+  <path d="M10 25 C 15 17.5, 21 31, 27 24.5 C 33 18, 39 14.5, 45 21.5 C 50 27, 54 30, 58 24.5" fill="none" stroke="#fbbf24" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

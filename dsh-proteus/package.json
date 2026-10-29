@@ -1,0 +1,56 @@
+{
+  "name": "dsh-proteus",
+  "version": "0.1.0",
+  "description": "Proteus 数学应试插件：考试契约 → 矩阵路由 → 求解 → 多路验证 → 评分模拟 → 定稿审计，按评分标准逐步得分。",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools": "./lib/tools.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "manifestVersion": 1
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dependencies": {
+    "schemastery": "^3.18.0"
+  },
+  "peerDependencies": {},
+  "files": [
+    "lib",
+    "lib/**",
+    "cordis.patch.yml",
+    "dsh.plugin.json",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "presets/**",
+    "skills/**",
+    "scripts/validate-package.mjs"
+  ],
+  "scripts": {
+    "validate": "node scripts/validate-package.mjs",
+    "check": "node scripts/validate-package.mjs",
+    "test": "node --test"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "math",
+    "exam",
+    "grading",
+    "proteus"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,12 @@
+# dsh-proteus bundle patch：只向宿主插件清单注入一行 Proteus 宿主插件。
+# Node 半侧（exports "."）在主机进程内运行：启动时把随包 skills/ 幂等同步到
+# $DSH_HOME/skills/proteus/，并在 agentPresets 服务可用时按 presets/roster.json
+# 程序化注册 5 个预设。预设不在本文件中声明，也不使用 YAML 求值标签。
+# package.json 的 dsh.bundle.patch 指向本文件。
+- insert:
+    - id: proteus
+      name: dsh-proteus
+      config:
+        enabled: true
+        skillSync: true
+        presets: true

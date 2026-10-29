@@ -1,0 +1,15 @@
+{
+  "id": "dsh-proteus",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "description": "Proteus 数学应试插件：按评分标准逐步得分的考试契约、7 个 proteus_* 工具与 5 个角色预设，随包同步技能库。",
+  "engines": {
+    "dsh": ">=0.0.1"
+  },
+  "contributes": {
+    "tools": [],
+    "skills": [
+      "proteus"
+    ]
+  }
+}
